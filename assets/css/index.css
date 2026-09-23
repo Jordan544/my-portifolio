@@ -101,6 +101,16 @@ body {
   border-color: var(--accent-color);
 }
 
+/* Floating Theme Button positioned at Top Right */
+.floating-theme-btn {
+  position: fixed;
+  top: 20px;
+  right: 25px;
+  z-index: 999;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background: var(--surface-color);
+}
+
 .profile-img img {
   margin: 10px auto;
   display: block;
