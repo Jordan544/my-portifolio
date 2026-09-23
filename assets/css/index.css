@@ -312,7 +312,6 @@ section {
   color: var(--default-color);
 }
 
-/* Professional Hero Image Styling */
 .hero-image {
   display: flex;
   justify-content: center;
@@ -553,7 +552,7 @@ section {
   color: var(--accent-color);
 }
 
-/* Resume Section */
+
 .professional-journey, .education-skills {
   background: var(--card-bg);
   border: 1px solid var(--border-color);
@@ -693,7 +692,6 @@ section {
   color: var(--default-color);
 }
 
-/* Portfolio Projects & Services */
 .portfolio-card, .service-item {
   background: var(--card-bg);
   border: 1px solid var(--border-color);
@@ -756,7 +754,6 @@ section {
   flex-shrink: 0;
 }
 
-/* Footer */
 .footer {
   padding: 25px 0;
   background: var(--footer-bg);
