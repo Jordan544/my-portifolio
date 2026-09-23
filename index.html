@@ -30,6 +30,12 @@
     <i class="header-toggle d-xl-none bi bi-list"></i>
 
     <div class="header-top">
+      <div class="d-flex justify-content-between align-items-center mb-2 px-2">
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Light/Dark Theme" title="Toggle Theme">
+          <i class="bi bi-moon-fill" id="theme-icon"></i>
+        </button>
+      </div>
+
       <div class="profile-img">
         <img src="assets/images/jor2.jpg" alt="Ssentongo Jordan" class="img-fluid">
       </div>
@@ -447,12 +453,12 @@
         <div class="row gy-4">
 
           <div class="col-lg-5">
-            <div class="info-wrap" style="background: color-mix(in srgb, var(--default-color), transparent 96%); padding: 30px; border-radius: 8px;">
+            <div class="info-wrap" style="background: var(--card-bg-alt); padding: 30px; border-radius: 8px; border: 1px solid var(--border-color);">
               <div class="info-item d-flex mb-4" style="align-items: flex-start; gap: 15px;">
                 <i class="bi bi-geo-alt flex-shrink-0" style="font-size: 20px; color: var(--accent-color); width: 44px; height: 44px; background: color-mix(in srgb, var(--accent-color), transparent 90%); display: flex; justify-content: center; align-items: center; border-radius: 50px;"></i>
                 <div>
                   <h4 style="font-size: 16px; font-weight: 500; margin-bottom: 5px; color: var(--heading-color);">Location:</h4>
-                  <p style="margin-bottom: 0; font-size: 14px; color: color-mix(in srgb, var(--default-color), transparent 20%);">Kampala, Uganda</p>
+                  <p style="margin-bottom: 0; font-size: 14px; color: var(--default-color);">Kampala, Uganda</p>
                 </div>
               </div>
 
@@ -460,7 +466,7 @@
                 <i class="bi bi-envelope flex-shrink-0" style="font-size: 20px; color: var(--accent-color); width: 44px; height: 44px; background: color-mix(in srgb, var(--accent-color), transparent 90%); display: flex; justify-content: center; align-items: center; border-radius: 50px;"></i>
                 <div>
                   <h4 style="font-size: 16px; font-weight: 500; margin-bottom: 5px; color: var(--heading-color);">Email:</h4>
-                  <p style="margin-bottom: 0; font-size: 14px; color: color-mix(in srgb, var(--default-color), transparent 20%);">jordanssentongo20@gmail.com</p>
+                  <p style="margin-bottom: 0; font-size: 14px; color: var(--default-color);">jordanssentongo20@gmail.com</p>
                 </div>
               </div>
 
@@ -468,34 +474,34 @@
                 <i class="bi bi-github flex-shrink-0" style="font-size: 20px; color: var(--accent-color); width: 44px; height: 44px; background: color-mix(in srgb, var(--accent-color), transparent 90%); display: flex; justify-content: center; align-items: center; border-radius: 50px;"></i>
                 <div>
                   <h4 style="font-size: 16px; font-weight: 500; margin-bottom: 5px; color: var(--heading-color);">GitHub:</h4>
-                  <p style="margin-bottom: 0; font-size: 14px; color: color-mix(in srgb, var(--default-color), transparent 20%);">github.com/jordan544</p>
+                  <p style="margin-bottom: 0; font-size: 14px; color: var(--default-color);">github.com/jordan544</p>
                 </div>
               </div>
             </div>
           </div>
 
           <div class="col-lg-7">
-            <form action="https://formspree.io/f/xljdbdgv" method="post" class="php-email-form" style="background: color-mix(in srgb, var(--default-color), transparent 96%); padding: 30px; border-radius: 8px;">
+            <form action="https://formspree.io/f/xljdbdgv" method="post" class="php-email-form" style="background: var(--card-bg-alt); padding: 30px; border-radius: 8px; border: 1px solid var(--border-color);">
               <div class="row gy-4">
 
                 <div class="col-md-6">
                   <label for="name-field" class="pb-2" style="color: var(--heading-color);">Your Name</label>
-                  <input type="text" name="name" id="name-field" class="form-control" required style="background: color-mix(in srgb, var(--background-color), #fff 5%); border: 1px solid color-mix(in srgb, var(--default-color), transparent 80%); color: var(--default-color); border-radius: 4px; padding: 10px 15px;">
+                  <input type="text" name="name" id="name-field" class="form-control" required style="background: var(--input-bg); border: 1px solid var(--border-color); color: var(--default-color); border-radius: 4px; padding: 10px 15px;">
                 </div>
 
                 <div class="col-md-6">
                   <label for="email-field" class="pb-2" style="color: var(--heading-color);">Your Email</label>
-                  <input type="email" class="form-control" name="email" id="email-field" required style="background: color-mix(in srgb, var(--background-color), #fff 5%); border: 1px solid color-mix(in srgb, var(--default-color), transparent 80%); color: var(--default-color); border-radius: 4px; padding: 10px 15px;">
+                  <input type="email" class="form-control" name="email" id="email-field" required style="background: var(--input-bg); border: 1px solid var(--border-color); color: var(--default-color); border-radius: 4px; padding: 10px 15px;">
                 </div>
 
                 <div class="col-md-12">
                   <label for="subject-field" class="pb-2" style="color: var(--heading-color);">Subject</label>
-                  <input type="text" class="form-control" name="subject" id="subject-field" required style="background: color-mix(in srgb, var(--background-color), #fff 5%); border: 1px solid color-mix(in srgb, var(--default-color), transparent 80%); color: var(--default-color); border-radius: 4px; padding: 10px 15px;">
+                  <input type="text" class="form-control" name="subject" id="subject-field" required style="background: var(--input-bg); border: 1px solid var(--border-color); color: var(--default-color); border-radius: 4px; padding: 10px 15px;">
                 </div>
 
                 <div class="col-md-12">
                   <label for="message-field" class="pb-2" style="color: var(--heading-color);">Message</label>
-                  <textarea class="form-control" name="message" rows="10" id="message-field" required style="background: color-mix(in srgb, var(--background-color), #fff 5%); border: 1px solid color-mix(in srgb, var(--default-color), transparent 80%); color: var(--default-color); border-radius: 4px; padding: 10px 15px;"></textarea>
+                  <textarea class="form-control" name="message" rows="10" id="message-field" required style="background: var(--input-bg); border: 1px solid var(--border-color); color: var(--default-color); border-radius: 4px; padding: 10px 15px;"></textarea>
                 </div>
 
                 <div class="col-md-12 text-center">

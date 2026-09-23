@@ -1,4 +1,38 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // 0. Theme Toggle Handler
+  const themeToggleBtn = document.getElementById('theme-toggle');
+  const themeIcon = document.getElementById('theme-icon');
+  const htmlElement = document.documentElement;
+
+  // Check saved theme from localStorage
+  const savedTheme = localStorage.getItem('theme') || 'dark';
+  if (savedTheme === 'light') {
+    htmlElement.setAttribute('data-theme', 'light');
+    if (themeIcon) {
+      themeIcon.className = 'bi bi-sun-fill';
+    }
+  } else {
+    htmlElement.removeAttribute('data-theme');
+    if (themeIcon) {
+      themeIcon.className = 'bi bi-moon-fill';
+    }
+  }
+
+  if (themeToggleBtn) {
+    themeToggleBtn.addEventListener('click', () => {
+      const currentTheme = htmlElement.getAttribute('data-theme');
+      if (currentTheme === 'light') {
+        htmlElement.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'dark');
+        if (themeIcon) themeIcon.className = 'bi bi-moon-fill';
+      } else {
+        htmlElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
+        if (themeIcon) themeIcon.className = 'bi bi-sun-fill';
+      }
+    });
+  }
+
   // 1. Content Reveal on Load / Scroll Intersection Observer
   const revealElements = document.querySelectorAll('.reveal-element');
 
@@ -6,7 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
-        // Optional: stop observing once animated
         observer.unobserve(entry.target);
       }
     });
