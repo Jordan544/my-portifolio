@@ -44,7 +44,7 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Content Loading Animation classes */
+
 .reveal-element {
   opacity: 0;
   transform: translateY(30px);
@@ -57,7 +57,7 @@ body {
   transform: translateY(0);
 }
 
-/* Header & Sidebar */
+
 .header {
   position: fixed;
   top: 0;
@@ -101,7 +101,7 @@ body {
   border-color: var(--accent-color);
 }
 
-/* Floating Theme Button positioned at Top Right */
+
 .floating-theme-btn {
   position: fixed;
   top: 20px;
@@ -189,7 +189,7 @@ body {
   color: var(--accent-color);
 }
 
-/* Main Layout Positioning */
+
 .main {
   margin-left: 300px;
 }
@@ -203,7 +203,7 @@ body {
   }
 }
 
-/* Sections General */
+
 section {
   padding: 60px 0;
   overflow: hidden;
@@ -239,7 +239,7 @@ section {
   font-size: 14px;
 }
 
-/* Hero Section Layout & Typography */
+
 .hero {
   width: 100%;
   min-height: 100vh;
@@ -394,7 +394,7 @@ section {
   .card-3 { right: 10px; bottom: 60px; }
 }
 
-/* About Section */
+
 .about .intro-header h1 {
   font-size: 28px;
   font-weight: 600;
@@ -488,7 +488,7 @@ section {
   font-size: 14px;
 }
 
-/* Skills Section */
+
 .skills-container, .skills-sidebar {
   background: var(--card-bg);
   border: 1px solid var(--border-color);
