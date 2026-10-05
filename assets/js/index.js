@@ -1,126 +1,124 @@
+document.documentElement.classList.add('js');
+
 document.addEventListener('DOMContentLoaded', () => {
-  // 0. Theme Toggle Handler
-  const themeToggleBtn = document.getElementById('theme-toggle');
-  const themeIcon = document.getElementById('theme-icon');
-  const htmlElement = document.documentElement;
+  const root = document.documentElement;
+  const header = document.getElementById('siteHeader');
+  const nav = document.getElementById('nav');
+  const menuToggle = document.getElementById('menuToggle');
 
-  // Check saved theme from localStorage
-  const savedTheme = localStorage.getItem('theme') || 'dark';
-  if (savedTheme === 'light') {
-    htmlElement.setAttribute('data-theme', 'light');
-    if (themeIcon) {
-      themeIcon.className = 'bi bi-sun-fill';
-    }
-  } else {
-    htmlElement.removeAttribute('data-theme');
-    if (themeIcon) {
-      themeIcon.className = 'bi bi-moon-fill';
-    }
+  /* ---------- Theme ---------- */
+  const themeToggle = document.getElementById('themeToggle');
+  const themeIcon = document.getElementById('themeIcon');
+
+  function paintTheme() {
+    const light = root.getAttribute('data-theme') === 'light';
+    themeIcon.className = light ? 'bi bi-moon-fill' : 'bi bi-sun-fill';
+    themeToggle.setAttribute('aria-label', light ? 'Switch to dark theme' : 'Switch to light theme');
+    const meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute('content', light ? '#f8fafc' : '#0b1120');
   }
+  paintTheme();
 
-  if (themeToggleBtn) {
-    themeToggleBtn.addEventListener('click', () => {
-      const currentTheme = htmlElement.getAttribute('data-theme');
-      if (currentTheme === 'light') {
-        htmlElement.removeAttribute('data-theme');
-        localStorage.setItem('theme', 'dark');
-        if (themeIcon) themeIcon.className = 'bi bi-moon-fill';
-      } else {
-        htmlElement.setAttribute('data-theme', 'light');
-        localStorage.setItem('theme', 'light');
-        if (themeIcon) themeIcon.className = 'bi bi-sun-fill';
-      }
-    });
+  themeToggle.addEventListener('click', () => {
+    const light = root.getAttribute('data-theme') === 'light';
+    if (light) root.removeAttribute('data-theme');
+    else root.setAttribute('data-theme', 'light');
+    try { localStorage.setItem('theme', light ? 'dark' : 'light'); } catch (e) {}
+    paintTheme();
+  });
+
+  /* ---------- Mobile menu ---------- */
+  function setMenu(open) {
+    nav.classList.toggle('open', open);
+    menuToggle.setAttribute('aria-expanded', String(open));
+    menuToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    menuToggle.querySelector('i').className = open ? 'bi bi-x-lg' : 'bi bi-list';
   }
+  menuToggle.addEventListener('click', () => setMenu(!nav.classList.contains('open')));
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
+  document.addEventListener('click', e => {
+    if (nav.classList.contains('open') && !nav.contains(e.target) && !menuToggle.contains(e.target)) setMenu(false);
+  });
 
-  // 1. Content Reveal on Load / Scroll Intersection Observer
-  const revealElements = document.querySelectorAll('.reveal-element');
+  /* ---------- Header state + scroll progress ---------- */
+  const progress = document.getElementById('scrollProgress');
+  function onScroll() {
+    header.classList.toggle('scrolled', window.scrollY > 10);
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    progress.style.width = (max > 0 ? (window.scrollY / max) * 100 : 0) + '%';
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 
-  const revealObserver = new IntersectionObserver((entries, observer) => {
+  /* ---------- Scroll spy ---------- */
+  const links = [...document.querySelectorAll('.nav-link')];
+  const sections = links.map(l => document.querySelector(l.getAttribute('href'))).filter(Boolean);
+  const spy = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
+        links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + entry.target.id));
       }
     });
-  }, {
-    threshold: 0.15,
-    rootMargin: '0px 0px -50px 0px'
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  sections.forEach(s => spy.observe(s));
+
+  /* ---------- Reveal on scroll (with small stagger) ---------- */
+  const reveals = document.querySelectorAll('.reveal');
+  reveals.forEach(el => {
+    const siblings = [...el.parentElement.children].filter(c => c.classList.contains('reveal'));
+    el.style.setProperty('--d', (siblings.indexOf(el) * 0.08) + 's');
   });
-
-  revealElements.forEach(el => {
-    revealObserver.observe(el);
-  });
-
-  // 2. Dynamic Scroll Spy Active Link Updater
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('#navmenu a');
-
-  function updateActiveOnScroll() {
-    const scrollY = window.pageYOffset;
-
-    sections.forEach(section => {
-      const sectionHeight = section.offsetHeight;
-      const sectionTop = section.offsetTop - 100;
-      const sectionId = section.getAttribute('id');
-
-      if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-        navLinks.forEach(link => {
-          link.classList.remove('active');
-          if (link.getAttribute('href') === `#${sectionId}`) {
-            link.classList.add('active');
-          }
-        });
-      }
-    });
-  }
-
-  window.addEventListener('scroll', updateActiveOnScroll);
-  updateActiveOnScroll(); // Run immediately on page load
-
-  // 3. Skills Progress Bar & Number Counter Animation
-  const skillsSection = document.querySelector('#skills');
-  const progressBars = document.querySelectorAll('.progress-bar');
-  const percentageSpans = document.querySelectorAll('.skill-percentage');
-  let skillsAnimated = false;
-
-  function runSkillsAnimation() {
-    if (skillsAnimated) return;
-
-    // Animate Progress Bar widths
-    progressBars.forEach(bar => {
-      const targetWidth = bar.getAttribute('data-width');
-      bar.style.width = targetWidth;
-    });
-
-    // Animate Number Counting from 0% to Target
-    percentageSpans.forEach(span => {
-      const target = +span.getAttribute('data-target');
-      let current = 0;
-      const increment = target / 40; // controls speed
-      const timer = setInterval(() => {
-        current += increment;
-        if (current >= target) {
-          span.textContent = target + '%';
-          clearInterval(timer);
-        } else {
-          span.textContent = Math.floor(current) + '%';
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          obs.unobserve(entry.target);
         }
-      }, 25);
-    });
-
-    skillsAnimated = true;
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(el => io.observe(el));
+  } else {
+    reveals.forEach(el => el.classList.add('visible'));
   }
 
-  const skillsObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        runSkillsAnimation();
+  /* ---------- Contact form (AJAX to Formspree) ---------- */
+  const form = document.getElementById('contactForm');
+  const status = document.getElementById('formStatus');
+  const sendBtn = document.getElementById('sendBtn');
+
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    status.className = 'form-status';
+    status.textContent = '';
+    sendBtn.disabled = true;
+    const original = sendBtn.innerHTML;
+    sendBtn.textContent = 'Sending...';
+
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' }
+      });
+      if (res.ok) {
+        form.reset();
+        status.classList.add('ok');
+        status.textContent = 'Thanks! Your message was sent. I will get back to you soon.';
+      } else {
+        throw new Error('Request failed');
       }
-    });
-  }, { threshold: 0.3 });
+    } catch (err) {
+      status.classList.add('err');
+      status.textContent = 'Something went wrong. Please try again or email me directly.';
+    } finally {
+      sendBtn.disabled = false;
+      sendBtn.innerHTML = original;
+    }
+  });
 
-  if (skillsSection) {
-    skillsObserver.observe(skillsSection);
-  }
+  /* ---------- Footer year ---------- */
+  const year = document.getElementById('year');
+  if (year) year.textContent = new Date().getFullYear();
 });

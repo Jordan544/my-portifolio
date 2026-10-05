@@ -1,521 +1,349 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Portfolio | Ssentongo Jordan</title>
-  <meta name="description" content="Portfolio of Ssentongo Jordan - Software Engineering Student and Web Developer">
-  <meta name="keywords" content="Software Engineer, Web Developer, Django, Python, JavaScript, MySQL, Uganda">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ssentongo Jordan | Software Engineer &amp; Web Developer</title>
+  <meta name="description" content="Portfolio of Ssentongo Jordan, a software engineering student and web developer in Kampala, Uganda, building Django, Python and MySQL applications.">
+  <meta name="keywords" content="Software Engineer, Web Developer, Django, Python, JavaScript, MySQL, Uganda, Kampala">
+  <meta name="theme-color" content="#0b1120">
+  <meta property="og:title" content="Ssentongo Jordan | Software Engineer &amp; Web Developer">
+  <meta property="og:description" content="Django, Python and MySQL web applications built in Kampala, Uganda.">
+  <meta property="og:type" content="website">
 
   <link rel="icon" href="assets/img/favicon.png">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&family=Raleway:wght@300;400;500;600;700&family=Ubuntu:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/css/index.css" rel="stylesheet">
+  <script>
+    /* Apply saved theme before paint to avoid a flash */
+    try { if (localStorage.getItem('theme') === 'light') document.documentElement.setAttribute('data-theme', 'light'); } catch (e) {}
+  </script>
 </head>
 
-<body class="index-page">
-  <!-- Global Theme Toggle Button (Visible on all screens at the top right) -->
-  <button id="theme-toggle" class="theme-toggle-btn floating-theme-btn" aria-label="Toggle Light/Dark Theme" title="Toggle Theme">
-    <i class="bi bi-moon-fill" id="theme-icon"></i>
-  </button>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
-  <header id="header" class="header dark-background d-flex flex-column justify-content-between">
-    <i class="header-toggle d-xl-none bi bi-list"></i>
-    <div class="header-top">
-      <div class="profile-img">
-        <img src="assets/images/jor2.jpg" alt="Ssentongo Jordan" class="img-fluid">
-      </div>
-      <a href="index.html" class="logo d-flex align-items-center justify-content-center">
-        <h1 class="sitename">Ssentongo Jordan</h1>
+  <header class="site-header" id="siteHeader">
+    <div class="wrap nav-bar">
+      <a href="#home" class="brand" aria-label="Ssentongo Jordan, home">
+        <span class="brand-mark">SJ</span>
+        <span class="brand-name">Ssentongo Jordan</span>
       </a>
-    </div>
 
-    <nav id="navmenu" class="navmenu">
-      <ul>
-        <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i>Home</a></li>
-        <li><a href="#about"><i class="bi bi-person navicon"></i> About</a></li>
-        <li><a href="#skills"><i class="bi bi-cpu navicon"></i> Skills</a></li>
-        <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
-        <li><a href="#projects"><i class="bi bi-code-square navicon"></i> Projects</a></li>
-        <li><a href="#services"><i class="bi bi-hdd-stack navicon"></i> What I Do</a></li>
-        <li><a href="#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
-      </ul>
-    </nav>
+      <nav class="nav" id="nav" aria-label="Primary">
+        <ul>
+          <li><a href="#home" class="nav-link active">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#education" class="nav-link">Education</a></li>
+          <li><a href="#services" class="nav-link">Services</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
 
-    <div class="social-links text-center">
-      <a href="https://github.com/Jordan544" class="github"><i class="bi bi-github"></i></a>
-      <a href="https://www.linkedin.com/in/ssentongo-jordan-9b5277434"  class="linkedin"><i class="bi bi-linkedin"></i></a>
-      <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
+      <div class="nav-actions">
+        <button id="themeToggle" class="icon-btn" type="button" aria-label="Switch to light theme" title="Toggle theme">
+          <i class="bi bi-sun-fill" id="themeIcon" aria-hidden="true"></i>
+        </button>
+        <a href="#contact" class="btn btn-primary btn-sm d-none-mobile">Hire me</a>
+        <button id="menuToggle" class="icon-btn menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
+          <i class="bi bi-list" aria-hidden="true"></i>
+        </button>
+      </div>
     </div>
   </header>
 
-  <main class="main">
-    <section id="hero" class="hero section reveal-element">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-6 order-2 order-lg-1">
-            <div class="hero-content">
-              <h1>
-                Web Developer &amp;
-                <span class="accent-text">Software Engineer</span>
-              </h1>
-              <p class="hero-description">
-                Turning complex problems into clean, usable web solutions. Specialized in building dynamic web applications using Python, Django, MySQL, and modern frontend technologies.
-              </p>
-              <div class="hero-actions">
-                <a href="#projects" class="btn-primary">View My Projects</a>
-                <a href="#contact" class="btn-secondary">Get In Touch</a>
-              </div>
-              <div class="hero-stats">
-                <div class="stat-item">
-                  <span class="stat-number">4</span>
-                  <span class="stat-label">Core Projects Built</span>
-                </div>
-                <div class="stat-item">
-                  <span class="stat-number">6+</span>
-                  <span class="stat-label">Tech Stacks</span>
-                </div>
-              </div>
-            </div>
+  <main id="main">
+    <!-- HERO -->
+    <section id="home" class="hero">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="wrap hero-grid">
+        <div class="hero-copy reveal">
+          <span class="availability"><span class="pulse" aria-hidden="true"></span>Available for projects</span>
+          <h1>Hi, I'm <span class="grad">Ssentongo Jordan</span>.<br>I build reliable web applications.</h1>
+          <p class="lead">Software engineering student and web developer in Kampala, Uganda. I turn complex problems into clean, usable products with Python, Django, MySQL and modern frontend technologies.</p>
+          <div class="hero-cta">
+            <a href="#projects" class="btn btn-primary">View projects <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+            <a href="#contact" class="btn btn-ghost">Get in touch</a>
           </div>
-
-          <div class="col-lg-6 order-1 order-lg-2">
-            <div class="hero-image">
-              <div class="image-wrapper">
-                <img src="assets/images/jordan.jpg" alt="Ssentongo Jordan" class="img-fluid main-image">
-                <div class="floating-card card-1">
-                  <i class="bi bi-code-slash"></i>
-                  <span>Django &amp; Python</span>
-                </div>
-                <div class="floating-card card-2">
-                  <i class="bi bi-server"></i>
-                  <span>Web Development</span>
-                </div>
-                <div class="floating-card card-3">
-                  <i class="bi bi-palette"></i>
-                  <span>UI/UX Design</span>
-                </div>
-              </div>
-            </div>
+          <ul class="hero-meta">
+            <li><strong>4</strong><span>Projects built</span></li>
+            <li><strong>6+</strong><span>Technologies</span></li>
+            <li><strong>Django</strong><span>Primary framework</span></li>
+          </ul>
+          <div class="socials">
+            <a href="https://github.com/Jordan544" target="_blank" rel="noopener" aria-label="GitHub"><i class="bi bi-github"></i></a>
+            <a href="https://www.linkedin.com/in/ssentongo-jordan-9b5277434" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a href="mailto:jordanssentongo20@gmail.com" aria-label="Email"><i class="bi bi-envelope-fill"></i></a>
           </div>
-
         </div>
-      </div>
-    </section>
 
-    <section id="about" class="about section reveal-element">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-10">
-            <div class="intro-header text-center">
-              <h1>Hello, I'm Ssentongo Jordan</h1>
-              <p class="subtitle">Software Engineer &amp; Web Developer</p>
-            </div>
-
-            <div class="main-content-wrapper">
-              <div class="row align-items-start">
-                <div class="col-lg-4">
-                  <div class="profile-section">
-                    <div class="profile-image-container">
-                      <img src="assets/images/jor2.jpg" class="img-fluid" alt="Ssentongo Jordan">
-                    </div>
-                    <div class="profile-meta">
-                      <div class="location">
-                        <i class="bi bi-geo-alt"></i>
-                        <span>Kampala, Uganda</span>
-                      </div>
-                      <div class="status">
-                        <div class="status-indicator"></div>
-                        <span>Available for projects</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-lg-8">
-                  <div class="content-area">
-                    <div class="story-block">
-                      <p class="lead-text">I am a passionate software engineer based in Kampala, Uganda, dedicated to developing robust web solutions, intuitive platforms, and structured database systems.</p>
-                      <p>My core development capabilities span across foundational web languages (HTML, CSS, JavaScript, Flutter &amp; Dart) and powerful backend technologies including Python, the Django framework, and relational databases like MySQL.</p>
-                    </div>
-
-                    <div class="philosophy-quote">
-                      <div class="quote-mark">"</div>
-                      <p>Writing clean code and building scalable systems to solve real-world problems.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
+        <div class="hero-visual reveal">
+          <div class="photo-frame">
+            <img src="assets/images/jordan.jpg" alt="Portrait of Ssentongo Jordan" width="440" height="520">
           </div>
         </div>
       </div>
     </section>
 
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">About</span>
+          <h2>Clean code, scalable systems, real-world problems</h2>
+        </div>
 
-    <section id="skills" class="skills section reveal-element">
-      <div class="container section-title">
-        <h2>Skills</h2>
-        <p>Languages, frameworks, and database tools I use to build applications.</p>
-      </div>
+        <div class="about-grid">
+          <aside class="about-card reveal">
+            <img src="assets/images/jor2.jpg" alt="Ssentongo Jordan" loading="lazy" width="320" height="320">
+            <ul class="facts">
+              <li><i class="bi bi-geo-alt" aria-hidden="true"></i>Kampala, Uganda</li>
+              <li><i class="bi bi-mortarboard" aria-hidden="true"></i>Software Engineering, UICT</li>
+              <li><i class="bi bi-envelope" aria-hidden="true"></i><a href="mailto:jordanssentongo20@gmail.com">jordanssentongo20@gmail.com</a></li>
+            </ul>
+          </aside>
 
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8">
-            <div class="skills-container">
-              <div class="skill-category">
-                <div class="category-header">
-                  <h3 class="category-title">Technical Proficiencies</h3>
-                  <p class="category-subtitle">Core web technologies and backend architecture</p>
-                </div>
-                <div class="skills-list">
-                  <div class="skill-row">
-                    <div class="skill-info">
-                      <span class="skill-name">Python &amp; Django Framework</span>
-                      <span class="skill-percentage" data-target="90">0%</span>
-                    </div>
-                    <div class="progress"><div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 0%;" data-width="90%"></div></div>
-                  </div>
-                  <div class="skill-row">
-                    <div class="skill-info">
-                      <span class="skill-name">HTML &amp; CSS</span>
-                      <span class="skill-percentage" data-target="95">0%</span>
-                    </div>
-                    <div class="progress"><div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width: 0%;" data-width="95%"></div></div>
-                  </div>
-                  <div class="skill-row">
-                    <div class="skill-info">
-                      <span class="skill-name">JavaScript</span>
-                      <span class="skill-percentage" data-target="85">0%</span>
-                    </div>
-                    <div class="progress"><div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 0%;" data-width="85%"></div></div>
-                  </div>
-                  <div class="skill-row">
-                    <div class="skill-info">
-                      <span class="skill-name">MySQL Database Management</span>
-                      <span class="skill-percentage" data-target="88">0%</span>
-                    </div>
-                    <div class="progress"><div class="progress-bar" role="progressbar" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100" style="width: 0%;" data-width="88%"></div></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4">
-            <div class="skills-sidebar">
-              <div class="technologies-section">
-                <h5 class="tech-title">Tech Stack</h5>
-                <div class="tech-stack">
-                  <div class="tech-item"><i class="bi bi-filetype-html"></i><span>HTML5</span></div>
-                  <div class="tech-item"><i class="bi bi-filetype-css"></i><span>CSS3</span></div>
-                  <div class="tech-item"><i class="bi bi-filetype-js"></i><span>JavaScript</span></div>
-                  <div class="tech-item"><i class="bi bi-filetype-py"></i><span>Python</span></div>
-                  <div class="tech-item"><i class="bi bi-diagram-3"></i><span>Django</span></div>
-                  <div class="tech-item"><i class="bi bi-database"></i><span>MySQL</span></div>
-                </div>
-              </div>
-            </div>
+          <div class="about-text reveal">
+            <p class="big">I am a passionate software engineer based in Kampala, dedicated to developing robust web solutions, intuitive platforms and well-structured database systems.</p>
+            <p>My toolkit spans the foundations of the web (HTML, CSS, JavaScript, plus Flutter and Dart) and powerful backend technologies including Python, the Django framework and relational databases such as MySQL.</p>
+            <p>I enjoy owning a feature end to end: modelling the data, building the server logic, and shaping an interface people actually enjoy using.</p>
+            <blockquote>Writing clean code and building scalable systems to solve real-world problems.</blockquote>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Resume Section -->
-    <section id="resume" class="resume section reveal-element">
-      <div class="container section-title">
-        <h2>Resume</h2>
-        <p>Overview of my academic progression and engineering background.</p>
+    <!-- SKILLS -->
+    <section id="skills" class="section alt">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Skills</span>
+          <h2>Languages, frameworks and tools I work with</h2>
+        </div>
+
+        <div class="skills-grid">
+          <article class="skill-card reveal">
+            <div class="skill-icon"><i class="bi bi-server" aria-hidden="true"></i></div>
+            <h3>Backend</h3>
+            <ul class="tags">
+              <li>Python</li><li>Django</li><li>REST patterns</li><li>Authentication</li>
+            </ul>
+          </article>
+          <article class="skill-card reveal">
+            <div class="skill-icon"><i class="bi bi-window-sidebar" aria-hidden="true"></i></div>
+            <h3>Frontend</h3>
+            <ul class="tags">
+              <li>HTML5</li><li>CSS3</li><li>JavaScript</li><li>Responsive design</li><li>Bootstrap</li>
+            </ul>
+          </article>
+          <article class="skill-card reveal">
+            <div class="skill-icon"><i class="bi bi-database" aria-hidden="true"></i></div>
+            <h3>Data</h3>
+            <ul class="tags">
+              <li>MySQL</li><li>Schema design</li><li>Normalization</li><li>Query optimization</li>
+            </ul>
+          </article>
+          <article class="skill-card reveal">
+            <div class="skill-icon"><i class="bi bi-phone" aria-hidden="true"></i></div>
+            <h3>Mobile &amp; Tools</h3>
+            <ul class="tags">
+              <li>Flutter</li><li>Dart</li><li>Git &amp; GitHub</li><li>Render / Vercel</li>
+            </ul>
+          </article>
+        </div>
       </div>
+    </section>
 
-      <div class="container">
-        <div class="row align-items-start">
-          <div class="col-lg-5">
-            <div class="professional-journey">
-              <div class="section-intro">
-                <div class="icon-wrapper"><i class="bi bi-briefcase-fill"></i></div>
-                <h2>Education</h2>
-                <p>Academic Background</p>
-              </div>
+    <!-- PROJECTS -->
+    <section id="projects" class="section">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Projects</span>
+          <h2>Selected work</h2>
+          <p>Four applications I designed and built, from database to interface.</p>
+        </div>
 
-              <div class="experience-timeline">
-                <div class="timeline-item">
-                  <div class="timeline-dot"></div>
-                  <div class="timeline-content">
-                    <span class="timeline-year">2025 - Present</span>
-                    <h3>Software Engineering Student</h3>
-                    <h4>Uganda Institute of Information and Communications Technology (UICT)</h4>
-                    <p>Building real-world web systems, studying software design patterns, and mastering database querying and backend frameworks.</p>
-                  </div>
-                </div>
-              </div>
+        <div class="projects-grid">
+          <article class="project reveal">
+            <div class="project-top">
+              <span class="project-icon"><i class="bi bi-shop" aria-hidden="true"></i></span>
+              <span class="project-type">Full-stack app</span>
             </div>
-          </div>
-
-          <div class="col-lg-7">
-            <div class="education-skills">
-              <div class="section-intro">
-                <div class="icon-wrapper"><i class="bi bi-mortarboard-fill"></i></div>
-                <h2>Core Projects Summary</h2>
-                <p>Key applications designed and deployed</p>
-              </div>
-
-              <div class="education-grid">
-                <div class="education-card primary">
-                  <div class="education-header">
-                    <div class="degree-icon"><i class="bi bi-shop"></i></div>
-                    <div class="degree-info">
-                      <h3>Campus Marketplace</h3>
-                      <p class="institution">Full-Stack Application</p>
-                      <span class="graduation-year">Django &amp; MySQL</span>
-                    </div>
-                  </div>
-                  <div class="education-details">
-                    <p>A marketplace web platform allowing students to safely buy and sell items within campus boundaries with secure user authentication.</p>
-                  </div>
-                </div>
-
-                <div class="education-card">
-                  <div class="education-header">
-                    <div class="degree-icon"><i class="bi bi-book"></i></div>
-                    <div class="degree-info">
-                      <h3>Library Management System</h3>
-                      <p class="institution">Database &amp; Tracking Solution</p>
-                      <span class="graduation-year">Python, Django &amp; MySQL</span>
-                    </div>
-                  </div>
-                  <div class="education-details">
-                    <p>An administrative tool to catalog book inventories, manage student borrowing logs, and automate due-date tracking.</p>
-                  </div>
-                </div>
-              </div>
+            <h3>Campus Marketplace</h3>
+            <p>A trading platform for university students to list items, communicate and complete transactions safely within campus, with secure user authentication.</p>
+            <ul class="tags small"><li>Django</li><li>MySQL</li><li>Auth</li></ul>
+            <div class="project-links">
+              <a class="btn btn-primary btn-sm" href="https://marketplace-v577.onrender.com/" target="_blank" rel="noopener">Live demo <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a>
             </div>
+          </article>
+
+          <article class="project reveal">
+            <div class="project-top">
+              <span class="project-icon"><i class="bi bi-book" aria-hidden="true"></i></span>
+              <span class="project-type">Management system</span>
+            </div>
+            <h3>Library Management System</h3>
+            <p>A structured backend to catalogue book inventories, manage student borrowing logs and automate due-date and overdue tracking.</p>
+            <ul class="tags small"><li>Python</li><li>Django</li><li>MySQL</li></ul>
+            <div class="project-links">
+              <a class="btn btn-ghost btn-sm" href="https://github.com/Jordan544" target="_blank" rel="noopener"><i class="bi bi-github" aria-hidden="true"></i> GitHub profile</a>
+            </div>
+          </article>
+
+          <article class="project reveal">
+            <div class="project-top">
+              <span class="project-icon"><i class="bi bi-mortarboard" aria-hidden="true"></i></span>
+              <span class="project-type">Frontend website</span>
+            </div>
+            <h3>School Website</h3>
+            <p>A responsive, interactive educational website with clean layouts, announcement boards and intuitive navigation across devices.</p>
+            <ul class="tags small"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
+            <div class="project-links">
+              <a class="btn btn-primary btn-sm" href="https://schoolwebsite-plum.vercel.app/" target="_blank" rel="noopener">Live demo <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a>
+            </div>
+          </article>
+
+          <article class="project reveal">
+            <div class="project-top">
+              <span class="project-icon"><i class="bi bi-geo-alt" aria-hidden="true"></i></span>
+              <span class="project-type">Systems web app</span>
+            </div>
+            <h3>Student Attendance System</h3>
+            <p>A web portal using room-specific IP subnets and location gating to ensure attendance is recorded only from the physical lecture room.</p>
+            <ul class="tags small"><li>Django</li><li>IP gating</li><li>Validation</li></ul>
+            <div class="project-links">
+              <a class="btn btn-ghost btn-sm" href="https://github.com/Jordan544" target="_blank" rel="noopener"><i class="bi bi-github" aria-hidden="true"></i> GitHub profile</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" class="section alt">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Education</span>
+          <h2>Academic background</h2>
+        </div>
+
+        <div class="timeline reveal">
+          <div class="tl-item">
+            <span class="tl-dot" aria-hidden="true"></span>
+            <span class="tl-date">2025 &ndash; Present</span>
+            <h3>Software Engineering Student</h3>
+            <p class="tl-org">Uganda Institute of Information and Communications Technology (UICT)</p>
+            <p>Building real-world web systems, studying software design patterns, and mastering database querying and backend frameworks.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="portfolio section reveal-element">
-      <div class="container section-title">
-        <h2>Projects &amp; Source Code</h2>
-        <p>Explore the four primary web projects I have engineered, complete with GitHub repository links.</p>
-      </div>
+    <!-- SERVICES -->
+    <section id="services" class="section">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Services</span>
+          <h2>What I do</h2>
+          <p>Engineering rigor combined with careful frontend execution.</p>
+        </div>
 
-      <div class="container">
-        <div class="row gy-4 justify-content-center">
-          
-          <div class="col-lg-6">
-            <div class="portfolio-card h-100 d-flex flex-column justify-content-between">
-              <div>
-                <div class="portfolio-meta mb-2">
-                  <span class="portfolio-category">Django &amp; MySQL</span>
-                  <span class="portfolio-year">Full-Stack App</span>
-                </div>
-                <h3 class="portfolio-title">Campus Marketplace</h3>
-                <p class="portfolio-description">A web-based trading platform built for university students to list items, handle communication, and manage transactions seamlessly within campus limits.</p>
-              </div>
-              <div class="mt-4 pt-2">
-                <a href="https://marketplace-v577.onrender.com/" class="btn-primary" style="padding: 8px 16px; font-size: 14px; display: inline-flex; align-items: center; gap: 8px;">
-                  <i class="bi bi-github"></i> View on GitHub
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-6">
-            <div class="portfolio-card h-100 d-flex flex-column justify-content-between">
-              <div>
-                <div class="portfolio-meta mb-2">
-                  <span class="portfolio-category">Python &amp; Django</span>
-                  <span class="portfolio-year">Management System</span>
-                </div>
-                <h3 class="portfolio-title">Library Management System</h3>
-                <p class="portfolio-description">A structured backend system designed to streamline book cataloging, member check-outs, overdue tracking, and database administration for libraries.</p>
-              </div>
-              <div class="mt-4 pt-2">
-                <a href="#" target="_blank" class="btn-primary" style="padding: 8px 16px; font-size: 14px; display: inline-flex; align-items: center; gap: 8px;">
-                  <i class="bi bi-github"></i> View on GitHub
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-6">
-            <div class="portfolio-card h-100 d-flex flex-column justify-content-between">
-              <div>
-                <div class="portfolio-meta mb-2">
-                  <span class="portfolio-category">HTML, CSS &amp; JavaScript</span>
-                  <span class="portfolio-year">Frontend Website</span>
-                </div>
-                <h3 class="portfolio-title">School Website</h3>
-                <p class="portfolio-description">A fully responsive, interactive educational website featuring clean layouts, announcement boards, intuitive navigation, and dynamic user interfaces.</p>
-              </div>
-              <div class="mt-4 pt-2">
-                <a href="https://schoolwebsite-plum.vercel.app/" class="btn-primary" style="padding: 8px 16px; font-size: 14px; display: inline-flex; align-items: center; gap: 8px;">
-                  <i class="bi bi-github"></i> View on GitHub
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-6">
-            <div class="portfolio-card h-100 d-flex flex-column justify-content-between">
-              <div>
-                <div class="portfolio-meta mb-2">
-                  <span class="portfolio-category">Django &amp; IP Gating</span>
-                  <span class="portfolio-year">Systems Web App</span>
-                </div>
-                <h3 class="portfolio-title">Student Attendance System</h3>
-                <p class="portfolio-description">A specialized web portal utilizing room-specific IP subnets and location-gating validation to ensure authentic, location-restricted physical lecture attendance.</p>
-              </div>
-              <div class="mt-4 pt-2">
-                <a href="#" target="_blank" class="btn-primary" style="padding: 8px 16px; font-size: 14px; display: inline-flex; align-items: center; gap: 8px;">
-                  <i class="bi bi-github"></i> View on GitHub
-                </a>
-              </div>
-            </div>
-          </div>
-
+        <div class="services-grid">
+          <article class="service reveal">
+            <span class="service-num">01</span>
+            <i class="bi bi-window-split" aria-hidden="true"></i>
+            <h3>Full-stack development</h3>
+            <p>End-to-end web applications with Python and Django: server logic, routing and secure user sessions.</p>
+          </article>
+          <article class="service reveal">
+            <span class="service-num">02</span>
+            <i class="bi bi-hdd-stack" aria-hidden="true"></i>
+            <h3>Database engineering</h3>
+            <p>Normalized MySQL schemas, reliable relations and optimized data-tracking models.</p>
+          </article>
+          <article class="service reveal">
+            <span class="service-num">03</span>
+            <i class="bi bi-layout-text-window-reverse" aria-hidden="true"></i>
+            <h3>Responsive interfaces</h3>
+            <p>Clean, accessible UIs in HTML, CSS and JavaScript that feel smooth on every device.</p>
+          </article>
         </div>
       </div>
     </section>
 
+    <!-- CONTACT -->
+    <section id="contact" class="section alt">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Contact</span>
+          <h2>Let's build something together</h2>
+          <p>Open to collaborations, internships and software opportunities. I usually reply within a couple of days.</p>
+        </div>
 
-    <section id="services" class="services section reveal-element">
-      <div class="container section-title">
-        <h2>What I Do</h2>
-        <p>Combining engineering rigor with creative frontend execution to build digital tools.</p>
-      </div>
-
-      <div class="container">
-        <div class="row g-4">
-          <div class="col-lg-4">
-            <div class="service-item h-100">
-              <div class="service-icon"><i class="bi bi-window-split"></i></div>
-              <div class="service-content">
-                <h3>Full-Stack Architecture</h3>
-                <p>Designing end-to-end web architectures using Python and Django, structuring server-side logic, routing, and user session management.</p>
-              </div>
+        <div class="contact-grid">
+          <div class="contact-info reveal">
+            <a class="info-row" href="mailto:jordanssentongo20@gmail.com">
+              <span class="info-ico"><i class="bi bi-envelope" aria-hidden="true"></i></span>
+              <span><small>Email</small>jordanssentongo20@gmail.com</span>
+            </a>
+            <div class="info-row">
+              <span class="info-ico"><i class="bi bi-geo-alt" aria-hidden="true"></i></span>
+              <span><small>Location</small>Kampala, Uganda</span>
             </div>
+            <a class="info-row" href="https://github.com/Jordan544" target="_blank" rel="noopener">
+              <span class="info-ico"><i class="bi bi-github" aria-hidden="true"></i></span>
+              <span><small>GitHub</small>github.com/Jordan544</span>
+            </a>
+            <a class="info-row" href="https://www.linkedin.com/in/ssentongo-jordan-9b5277434" target="_blank" rel="noopener">
+              <span class="info-ico"><i class="bi bi-linkedin" aria-hidden="true"></i></span>
+              <span><small>LinkedIn</small>Ssentongo Jordan</span>
+            </a>
           </div>
 
-          <div class="col-lg-4">
-            <div class="service-item h-100">
-              <div class="service-icon"><i class="bi bi-server"></i></div>
-              <div class="service-content">
-                <h3>Database Engineering</h3>
-                <p>Designing normalized relational databases with MySQL, building secure query relations, tables, and optimized data tracking models.</p>
+          <form class="contact-form reveal" id="contactForm" action="https://formspree.io/f/xljdbdgv" method="post">
+            <div class="field-row">
+              <div class="field">
+                <label for="name-field">Your name</label>
+                <input type="text" id="name-field" name="name" autocomplete="name" required>
+              </div>
+              <div class="field">
+                <label for="email-field">Your email</label>
+                <input type="email" id="email-field" name="email" autocomplete="email" required>
               </div>
             </div>
-          </div>
-
-          <div class="col-lg-4">
-            <div class="service-item h-100">
-              <div class="service-icon"><i class="bi bi-code-slash"></i></div>
-              <div class="service-content">
-                <h3>Interactive UI Interfaces</h3>
-                <p>Crafting responsive, clean user interfaces with HTML, CSS, and JavaScript to deliver smooth, cross-device user experiences.</p>
-              </div>
+            <div class="field">
+              <label for="subject-field">Subject</label>
+              <input type="text" id="subject-field" name="subject" required>
             </div>
-          </div>
+            <div class="field">
+              <label for="message-field">Message</label>
+              <textarea id="message-field" name="message" rows="6" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" id="sendBtn">Send message <i class="bi bi-send" aria-hidden="true"></i></button>
+            <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+          </form>
         </div>
       </div>
     </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact section reveal-element">
-      <div class="container section-title">
-        <h2>Contact Me</h2>
-        <p>Let's discuss project collaborations, software opportunities, or queries.</p>
-      </div>
-
-      <div class="container">
-        <div class="row gy-4">
-
-          <div class="col-lg-5">
-            <div class="info-wrap" style="background: var(--card-bg-alt); padding: 30px; border-radius: 8px; border: 1px solid var(--border-color);">
-              <div class="info-item d-flex mb-4" style="align-items: flex-start; gap: 15px;">
-                <i class="bi bi-geo-alt flex-shrink-0" style="font-size: 20px; color: var(--accent-color); width: 44px; height: 44px; background: color-mix(in srgb, var(--accent-color), transparent 90%); display: flex; justify-content: center; align-items: center; border-radius: 50px;"></i>
-                <div>
-                  <h4 style="font-size: 16px; font-weight: 500; margin-bottom: 5px; color: var(--heading-color);">Location:</h4>
-                  <p style="margin-bottom: 0; font-size: 14px; color: var(--default-color);">Kampala, Uganda</p>
-                </div>
-              </div>
-
-              <div class="info-item d-flex mb-4" style="align-items: flex-start; gap: 15px;">
-                <i class="bi bi-envelope flex-shrink-0" style="font-size: 20px; color: var(--accent-color); width: 44px; height: 44px; background: color-mix(in srgb, var(--accent-color), transparent 90%); display: flex; justify-content: center; align-items: center; border-radius: 50px;"></i>
-                <div>
-                  <h4 style="font-size: 16px; font-weight: 500; margin-bottom: 5px; color: var(--heading-color);">Email:</h4>
-                  <p style="margin-bottom: 0; font-size: 14px; color: var(--default-color);">jordanssentongo20@gmail.com</p>
-                </div>
-              </div>
-
-              <div class="info-item d-flex" style="align-items: flex-start; gap: 15px;">
-                <i class="bi bi-github flex-shrink-0" style="font-size: 20px; color: var(--accent-color); width: 44px; height: 44px; background: color-mix(in srgb, var(--accent-color), transparent 90%); display: flex; justify-content: center; align-items: center; border-radius: 50px;"></i>
-                <div>
-                  <h4 style="font-size: 16px; font-weight: 500; margin-bottom: 5px; color: var(--heading-color);">GitHub:</h4>
-                  <p style="margin-bottom: 0; font-size: 14px; color: var(--default-color);">github.com/jordan544</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-7">
-            <form action="https://formspree.io/f/xljdbdgv" method="post" class="php-email-form" style="background: var(--card-bg-alt); padding: 30px; border-radius: 8px; border: 1px solid var(--border-color);">
-              <div class="row gy-4">
-
-                <div class="col-md-6">
-                  <label for="name-field" class="pb-2" style="color: var(--heading-color);">Your Name</label>
-                  <input type="text" name="name" id="name-field" class="form-control" required style="background: var(--input-bg); border: 1px solid var(--border-color); color: var(--default-color); border-radius: 4px; padding: 10px 15px;">
-                </div>
-
-                <div class="col-md-6">
-                  <label for="email-field" class="pb-2" style="color: var(--heading-color);">Your Email</label>
-                  <input type="email" class="form-control" name="email" id="email-field" required style="background: var(--input-bg); border: 1px solid var(--border-color); color: var(--default-color); border-radius: 4px; padding: 10px 15px;">
-                </div>
-
-                <div class="col-md-12">
-                  <label for="subject-field" class="pb-2" style="color: var(--heading-color);">Subject</label>
-                  <input type="text" class="form-control" name="subject" id="subject-field" required style="background: var(--input-bg); border: 1px solid var(--border-color); color: var(--default-color); border-radius: 4px; padding: 10px 15px;">
-                </div>
-
-                <div class="col-md-12">
-                  <label for="message-field" class="pb-2" style="color: var(--heading-color);">Message</label>
-                  <textarea class="form-control" name="message" rows="10" id="message-field" required style="background: var(--input-bg); border: 1px solid var(--border-color); color: var(--default-color); border-radius: 4px; padding: 10px 15px;"></textarea>
-                </div>
-
-                <div class="col-md-12 text-center">
-                  <button type="submit" style="background: var(--accent-color); border: 0; padding: 12px 34px; color: var(--contrast-color); transition: 0.4s; border-radius: 50px; font-weight: 400; cursor: pointer;">Send Message</button>
-                </div>
-
-              </div>
-            </form>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
   </main>
 
-  <footer id="footer" class="footer light-background">
-    <div class="container">
-      <h3 class="sitename">Ssentongo Jordan</h3>
-      <p>Software Engineer &amp; Web Developer</p>
-      <div class="copyright">
-        <span>&copy; Copyright</span> <strong class="px-1 sitename">js.dev</strong> <span>All Rights Reserved</span>
+  <footer class="site-footer">
+    <div class="wrap footer-in">
+      <div>
+        <strong>Ssentongo Jordan</strong>
+        <span>Software Engineer &amp; Web Developer</span>
       </div>
+      <p>&copy; <span id="year">2026</span> Ssentongo Jordan. All rights reserved.</p>
+      <a href="#home" class="to-top" aria-label="Back to top"><i class="bi bi-arrow-up"></i></a>
     </div>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="assets/js/index.js"></script>
 </body>
-
 </html>
