@@ -18,7 +18,6 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/css/index.css" rel="stylesheet">
   <script>
-    /* Apply saved theme before paint to avoid a flash */
     try { if (localStorage.getItem('theme') === 'light') document.documentElement.setAttribute('data-theme', 'light'); } catch (e) {}
   </script>
 </head>
@@ -68,7 +67,7 @@
           <h1>Hi, I'm <span class="grad">Ssentongo Jordan</span>.<br>I build reliable web applications.</h1>
           <p class="lead">Software engineering student and web developer in Kampala, Uganda. I turn complex problems into clean, usable products with Python, Django, MySQL and modern frontend technologies.</p>
           <div class="hero-cta">
-            <a href="#projects" class="btn btn-primary">View projects <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+            <a href="#projects" class="btn btn-primary">View projects</a>
             <a href="#contact" class="btn btn-ghost">Get in touch</a>
           </div>
           <ul class="hero-meta">
@@ -103,9 +102,9 @@
           <aside class="about-card reveal">
             <img src="assets/images/jor2.jpg" alt="Ssentongo Jordan" loading="lazy" width="320" height="320">
             <ul class="facts">
-              <li><i class="bi bi-geo-alt" aria-hidden="true"></i>Kampala, Uganda</li>
-              <li><i class="bi bi-mortarboard" aria-hidden="true"></i>Software Engineering, UICT</li>
-              <li><i class="bi bi-envelope" aria-hidden="true"></i><a href="mailto:jordanssentongo20@gmail.com">jordanssentongo20@gmail.com</a></li>
+              <li>Kampala, Uganda</li>
+              <li>Software Engineering, UICT</li>
+              <li><a href="mailto:jordanssentongo20@gmail.com">jordanssentongo20@gmail.com</a></li>
             </ul>
           </aside>
 
@@ -129,28 +128,24 @@
 
         <div class="skills-grid">
           <article class="skill-card reveal">
-            <div class="skill-icon"><i class="bi bi-server" aria-hidden="true"></i></div>
             <h3>Backend</h3>
             <ul class="tags">
               <li>Python</li><li>Django</li><li>REST patterns</li><li>Authentication</li>
             </ul>
           </article>
           <article class="skill-card reveal">
-            <div class="skill-icon"><i class="bi bi-window-sidebar" aria-hidden="true"></i></div>
             <h3>Frontend</h3>
             <ul class="tags">
               <li>HTML5</li><li>CSS3</li><li>JavaScript</li><li>Responsive design</li><li>Bootstrap</li>
             </ul>
           </article>
           <article class="skill-card reveal">
-            <div class="skill-icon"><i class="bi bi-database" aria-hidden="true"></i></div>
             <h3>Data</h3>
             <ul class="tags">
               <li>MySQL</li><li>Schema design</li><li>Normalization</li><li>Query optimization</li>
             </ul>
           </article>
           <article class="skill-card reveal">
-            <div class="skill-icon"><i class="bi bi-phone" aria-hidden="true"></i></div>
             <h3>Mobile &amp; Tools</h3>
             <ul class="tags">
               <li>Flutter</li><li>Dart</li><li>Git &amp; GitHub</li><li>Render / Vercel</li>
@@ -172,53 +167,49 @@
         <div class="projects-grid">
           <article class="project reveal">
             <div class="project-top">
-              <span class="project-icon"><i class="bi bi-shop" aria-hidden="true"></i></span>
               <span class="project-type">Full-stack app</span>
             </div>
             <h3>Campus Marketplace</h3>
             <p>A trading platform for university students to list items, communicate and complete transactions safely within campus, with secure user authentication.</p>
             <ul class="tags small"><li>Django</li><li>MySQL</li><li>Auth</li></ul>
             <div class="project-links">
-              <a class="btn btn-primary btn-sm" href="https://marketplace-v577.onrender.com/" target="_blank" rel="noopener">Live demo <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a>
+              <a class="btn btn-primary btn-sm" href="https://marketplace-v577.onrender.com/" target="_blank" rel="noopener">Live demo</a>
             </div>
           </article>
 
           <article class="project reveal">
             <div class="project-top">
-              <span class="project-icon"><i class="bi bi-book" aria-hidden="true"></i></span>
               <span class="project-type">Management system</span>
             </div>
             <h3>Library Management System</h3>
             <p>A structured backend to catalogue book inventories, manage student borrowing logs and automate due-date and overdue tracking.</p>
             <ul class="tags small"><li>Python</li><li>Django</li><li>MySQL</li></ul>
             <div class="project-links">
-              <a class="btn btn-ghost btn-sm" href="https://github.com/Jordan544" target="_blank" rel="noopener"><i class="bi bi-github" aria-hidden="true"></i> GitHub profile</a>
+              <a class="btn btn-ghost btn-sm" href="https://github.com/Jordan544" target="_blank" rel="noopener">GitHub profile</a>
             </div>
           </article>
 
           <article class="project reveal">
             <div class="project-top">
-              <span class="project-icon"><i class="bi bi-mortarboard" aria-hidden="true"></i></span>
               <span class="project-type">Frontend website</span>
             </div>
             <h3>School Website</h3>
             <p>A responsive, interactive educational website with clean layouts, announcement boards and intuitive navigation across devices.</p>
             <ul class="tags small"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
             <div class="project-links">
-              <a class="btn btn-primary btn-sm" href="https://schoolwebsite-plum.vercel.app/" target="_blank" rel="noopener">Live demo <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a>
+              <a class="btn btn-primary btn-sm" href="https://schoolwebsite-plum.vercel.app/" target="_blank" rel="noopener">Live demo</a>
             </div>
           </article>
 
           <article class="project reveal">
             <div class="project-top">
-              <span class="project-icon"><i class="bi bi-geo-alt" aria-hidden="true"></i></span>
               <span class="project-type">Systems web app</span>
             </div>
             <h3>Student Attendance System</h3>
             <p>A web portal using room-specific IP subnets and location gating to ensure attendance is recorded only from the physical lecture room.</p>
             <ul class="tags small"><li>Django</li><li>IP gating</li><li>Validation</li></ul>
             <div class="project-links">
-              <a class="btn btn-ghost btn-sm" href="https://github.com/Jordan544" target="_blank" rel="noopener"><i class="bi bi-github" aria-hidden="true"></i> GitHub profile</a>
+              <a class="btn btn-ghost btn-sm" href="https://github.com/Jordan544" target="_blank" rel="noopener">GitHub profile</a>
             </div>
           </article>
         </div>
@@ -257,19 +248,16 @@
         <div class="services-grid">
           <article class="service reveal">
             <span class="service-num">01</span>
-            <i class="bi bi-window-split" aria-hidden="true"></i>
             <h3>Full-stack development</h3>
             <p>End-to-end web applications with Python and Django: server logic, routing and secure user sessions.</p>
           </article>
           <article class="service reveal">
             <span class="service-num">02</span>
-            <i class="bi bi-hdd-stack" aria-hidden="true"></i>
             <h3>Database engineering</h3>
             <p>Normalized MySQL schemas, reliable relations and optimized data-tracking models.</p>
           </article>
           <article class="service reveal">
             <span class="service-num">03</span>
-            <i class="bi bi-layout-text-window-reverse" aria-hidden="true"></i>
             <h3>Responsive interfaces</h3>
             <p>Clean, accessible UIs in HTML, CSS and JavaScript that feel smooth on every device.</p>
           </article>
@@ -289,19 +277,15 @@
         <div class="contact-grid">
           <div class="contact-info reveal">
             <a class="info-row" href="mailto:jordanssentongo20@gmail.com">
-              <span class="info-ico"><i class="bi bi-envelope" aria-hidden="true"></i></span>
               <span><small>Email</small>jordanssentongo20@gmail.com</span>
             </a>
             <div class="info-row">
-              <span class="info-ico"><i class="bi bi-geo-alt" aria-hidden="true"></i></span>
               <span><small>Location</small>Kampala, Uganda</span>
             </div>
             <a class="info-row" href="https://github.com/Jordan544" target="_blank" rel="noopener">
-              <span class="info-ico"><i class="bi bi-github" aria-hidden="true"></i></span>
               <span><small>GitHub</small>github.com/Jordan544</span>
             </a>
             <a class="info-row" href="https://www.linkedin.com/in/ssentongo-jordan-9b5277434" target="_blank" rel="noopener">
-              <span class="info-ico"><i class="bi bi-linkedin" aria-hidden="true"></i></span>
               <span><small>LinkedIn</small>Ssentongo Jordan</span>
             </a>
           </div>
@@ -325,7 +309,7 @@
               <label for="message-field">Message</label>
               <textarea id="message-field" name="message" rows="6" required></textarea>
             </div>
-            <button type="submit" class="btn btn-primary" id="sendBtn">Send message <i class="bi bi-send" aria-hidden="true"></i></button>
+            <button type="submit" class="btn btn-primary" id="sendBtn">Send message</button>
             <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
           </form>
         </div>
