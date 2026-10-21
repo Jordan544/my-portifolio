@@ -5,7 +5,7 @@
   --surface-2: #18233c;
   --text: #94a3b8;
   --heading: #f1f5f9;
-  --accent: #4f8fc4; /* Unified accent color */
+  --accent: #4f8fc4; 
   --accent-2: #818cf8;
   --accent-ink: #04202e;
   --border: rgba(148, 163, 184, 0.14);
@@ -127,7 +127,6 @@ ul { margin: 0; padding: 0; list-style: none; }
 .socials a:hover { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); transform: translateY(-3px); text-decoration: none; }
 
 .hero-visual { position: relative; display: flex; justify-content: center; }
-/* Added a subtle glow behind the image */
 .hero-visual::before {
   content: ''; position: absolute; inset: 10%; background: var(--accent); filter: blur(80px); opacity: 0.15; z-index: -1; border-radius: 50%;
 }
@@ -195,7 +194,6 @@ a.info-row:hover { text-decoration: none; border-color: var(--accent); transform
 .field label { display: block; margin-bottom: 8px; font-size: 14px; font-weight: 500; color: var(--heading); }
 .field input, .field textarea {
   width: 100%; padding: 13px 16px; font: 400 15px var(--font); color: var(--heading);
-  /* Changed background to surface-2 so inputs stand out from the form background */
   background: var(--surface-2); border: 1px solid var(--border); border-radius: 12px; transition: border-color .2s, box-shadow .2s; resize: vertical;
 }
 .field input:focus, .field textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 18%, transparent); }
@@ -236,10 +234,6 @@ a.info-row:hover { text-decoration: none; border-color: var(--accent); transform
   .hero { padding-top: 110px; }
   .hero-grid, .about-grid, .contact-grid { grid-template-columns: 1fr; }
   .hero-visual { order: -1; margin-bottom: 20px; }
-  .photo-frame { width: min(100%, 260px); }
-  .chip-1 { left: -2%; bottom: 8%; } 
-  .chip-2 { right: -2%; top: 5%; } 
-  .chip-3 { right: -2%; bottom: 30%; }
   .about-card { max-width: 340px; }
   .services-grid { grid-template-columns: 1fr; }
 }
@@ -253,13 +247,21 @@ a.info-row:hover { text-decoration: none; border-color: var(--accent); transform
   .contact-form { padding: 22px; }
   .footer-in { flex-direction: column; text-align: center; }
   
-  .hero-visual { margin-bottom: 30px; }
-  .photo-frame { width: min(100%, 220px); }
+  .hero-visual { margin-bottom: 20px; }
+  
+  /* REDUCED HEIGHT FOR MOBILE: Changed aspect-ratio from 5/6 to 4/3 */
+  .photo-frame img { 
+    aspect-ratio: 4 / 3; 
+    object-position: center 20%; /* Keeps the face visible when the height is cropped */
+  }
+  
+  /* Adjusted chip positioning so they don't overlap the squatter image awkwardly */
   .chip { padding: 6px 10px; font-size: 11px; border-radius: 8px; }
   .chip i { font-size: 12px; }
-  .chip-1 { left: -5%; bottom: 5%; }
-  .chip-2 { right: -5%; top: 5%; }
-  .chip-3 { right: -5%; bottom: 35%; }
+  .chip-1 { left: -2%; bottom: 5%; }
+  .chip-2 { right: -2%; top: 5%; }
+  .chip-3 { right: -2%; bottom: 35%; }
+  
   .about-card { max-width: 280px; margin: 0 auto; }
 }
 
